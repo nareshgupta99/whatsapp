@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:menu_tab/view/chats_view.dart';
+import 'package:menu_tab/view/bottom_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ChatsView()
-    );
+      home: BottomView()
+    ); 
   }
 }

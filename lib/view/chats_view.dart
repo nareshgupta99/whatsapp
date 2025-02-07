@@ -1,51 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:menu_tab/view/custom_text_field.dart';
 
-class ChatsView extends StatelessWidget {
+class ChatsView extends StatefulWidget {
   const ChatsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Column(
-            children: [
-              Text("WhatsApp", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green)),
-            ],
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Icon(Icons.qr_code),
-            ),
-            Padding(padding: const EdgeInsets.all(10.0), child: Icon(Icons.camera_alt)),
-            Padding(padding: const EdgeInsets.all(10.0), child: Icon(Icons.more_vert)),
-          ],
-          backgroundColor: Colors.white10,
-        ),
-        bottomNavigationBar: configBottomBar());
-  }
+  State<StatefulWidget> createState() => ChatsState();
+}
 
-  Widget configBottomBar() {
-    return SizedBox(
-      height: 48,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+const List<Record> users=[
+  ()
+]
+
+class ChatsState extends State<ChatsView> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03, right: MediaQuery.of(context).size.width * 0.03),
+      child: ListView(
         children: [
-          configBottomBarItem(icon: Icons.chat, text: "chat"),
-          configBottomBarItem(icon: Icons.chat, text: "chat"),
-          configBottomBarItem(icon: Icons.chat, text: "chat"),
-          configBottomBarItem(icon: Icons.chat, text: "chat"),
+          CustomTextField(
+            prefixIcon: Icons.search,
+            suffixIconButton: Icons.camera,
+          ),
+          ListView.builder(itemBuilder: (context, index){
+
+          })
         ],
       ),
-    );
-  }
-
-  Widget configBottomBarItem({required IconData icon, required String text}) {
-    return Column(
-      children: [
-        Icon(icon),
-        Text(text)
-      ],
     );
   }
 }
